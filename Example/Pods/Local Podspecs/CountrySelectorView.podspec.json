@@ -1,0 +1,22 @@
+{
+  "name": "CountrySelectorView",
+  "version": "0.1.0",
+  "summary": "A short description of CountrySelectorView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Isuru-Nanayakkara/CountrySelectorView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Isuru-Nanayakkara": "isuru.nan@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Isuru-Nanayakkara/CountrySelectorView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source_files": "CountrySelectorView/Classes/**/*"
+}
