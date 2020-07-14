@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'CountrySelectorView_Example' do
+  pod 'CountrySelectorView', :path => '../'
+
+  target 'CountrySelectorView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
