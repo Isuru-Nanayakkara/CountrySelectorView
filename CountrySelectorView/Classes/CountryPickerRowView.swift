@@ -30,7 +30,7 @@ class CountryPickerRowView: UIView {
         return label
     }()
     
-    private var country: CPCountry!
+    private var country: Country!
     
     
     override init(frame: CGRect) {
@@ -41,7 +41,7 @@ class CountryPickerRowView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(country: CPCountry) {
+    convenience init(country: Country) {
         self.init(frame: .zero)
         
         self.country = country

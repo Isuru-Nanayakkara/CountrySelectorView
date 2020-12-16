@@ -32,8 +32,8 @@ public class CountryListViewController: UIViewController {
         return searchController
     }()
     
-    private var countries: [CPCountry] = []
-    private var filteredCountries: [CPCountry] = []
+    private var countries: [Country] = []
+    private var filteredCountries: [Country] = []
     public var delegate: CountrySelectorViewControllerDelegate?
     public var selectedCountryCode: String?
     
@@ -50,6 +50,18 @@ public class CountryListViewController: UIViewController {
         self.init(nibName: nil, bundle: nil)
         
         loadCountries()
+    }
+    
+    convenience init(whitelist countries: [String]) {
+        self.init(nibName: nil, bundle: nil)
+        
+        loadCountries(whitelist: countries)
+    }
+    
+    convenience init(blacklist countries: [String]) {
+        self.init(nibName: nil, bundle: nil)
+        
+        loadCountries(blacklist: countries)
     }
     
     public override func viewDidLoad() {
@@ -95,14 +107,20 @@ public class CountryListViewController: UIViewController {
         }
     }
     
-    private func loadCountries() {
+    private func loadCountries(whitelist: [String]? = nil, blacklist: [String]? = nil) {
         let path = Bundle(for: Self.self).path(forResource: "countries", ofType: "json")!
         do {
             let url = URL(fileURLWithPath: path)
             let data = try Data(contentsOf: url)
-            let countries = try JSONDecoder().decode([CPCountry].self, from: data)
+            let countries = try JSONDecoder().decode([Country].self, from: data)
             
-            self.countries = countries
+            if let codes = blacklist {
+                self.countries = countries.filter { !codes.contains($0.code) }
+            } else if let codes = whitelist {
+                self.countries = countries.filter { codes.contains($0.code) }
+            } else {
+                self.countries = countries
+            }
         } catch {
             fatalError("Failed to load countries")
         }
@@ -139,6 +157,7 @@ extension CountryListViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         cell = UITableViewCell(style: .value1, reuseIdentifier: cellIdentifier)
+        cell.selectionStyle = .none
         
         let country = searchController.isActive ? filteredCountries[indexPath.row] : countries[indexPath.row]
         cell.textLabel?.text = "\(country.flag ?? "")  \(country.name)"
@@ -158,6 +177,7 @@ extension CountryListViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let country = searchController.isActive ? filteredCountries[indexPath.row] : countries[indexPath.row]
         selectedCountryCode = country.code
+        tableView.reloadData()
         delegate?.didSelectCountry(navigationController as! CountrySelectorViewController, country: country)
     }
     

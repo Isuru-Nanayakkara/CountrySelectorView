@@ -1,13 +1,13 @@
 //
-//  CPCountry.swift
+//  Country.swift
 //  CountrySelectorView
 //
-//  Created by Isuru Nanayakkara on 6/29/20.
+//  Created by Isuru Nanayakkara on 2020-12-16.
 //
 
 import Foundation
 
-public struct CPCountry {
+public struct Country {
     public let code: String
     public let callingCode: String
     public let flag: String?
@@ -17,7 +17,7 @@ public struct CPCountry {
     }
 }
 
-extension CPCountry: Codable {
+extension Country: Codable {
     
     enum CodingKeys: String, CodingKey {
         case code
@@ -27,7 +27,7 @@ extension CPCountry: Codable {
     
 }
 
-extension CPCountry: CustomStringConvertible {
+extension Country: CustomStringConvertible {
     
     public var description: String {
         return "\(name) \(flag ?? "") | \(callingCode)"

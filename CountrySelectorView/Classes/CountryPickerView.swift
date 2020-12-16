@@ -9,7 +9,7 @@ import UIKit
 
 public class CountryPickerView: UIPickerView {
     
-    private var countries: [CPCountry] = []
+    private var countries: [Country] = []
     public weak var pickerDelegate: CountryPickerViewDelegate?
     
     
@@ -21,21 +21,45 @@ public class CountryPickerView: UIPickerView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init() {
+    /// Show all countries
+    convenience public init() {
         self.init(frame: .zero)
         
         setup()
         loadCountries()
     }
     
-    private func loadCountries() {
+    /// Show only these countries (filter by country code. ex: US, GB, CA)
+    convenience public init(whitelist countries: [String]) {
+        self.init(frame: .zero)
+        
+        setup()
+        loadCountries(whitelist: countries)
+    }
+    
+    /// Do not show these countries (filter by country code. ex: US, GB, CA)
+    convenience public init(blacklist countries: [String]) {
+        self.init(frame: .zero)
+        
+        setup()
+        loadCountries(blacklist: countries)
+    }
+    
+    
+    private func loadCountries(whitelist: [String]? = nil, blacklist: [String]? = nil) {
         let path = Bundle(for: Self.self).path(forResource: "countries", ofType: "json")!
         do {
             let url = URL(fileURLWithPath: path)
             let data = try Data(contentsOf: url)
-            let countries = try JSONDecoder().decode([CPCountry].self, from: data)
+            let countries = try JSONDecoder().decode([Country].self, from: data)
             
-            self.countries = countries
+            if let codes = blacklist {
+                self.countries = countries.filter { !codes.contains($0.code) }
+            } else if let codes = whitelist {
+                self.countries = countries.filter { codes.contains($0.code) }
+            } else {
+                self.countries = countries
+            }
         } catch {
             fatalError("Failed to load countries")
         }

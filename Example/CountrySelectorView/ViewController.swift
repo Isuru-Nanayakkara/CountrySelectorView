@@ -10,8 +10,10 @@ import UIKit
 import CountrySelectorView
 
 class ViewController: UIViewController {
-    
     @IBOutlet weak var textField: UITextField!
+    
+    let countrySelectorViewController = CountrySelectorViewController()
+    let pickerView = CountryPickerView()
     
     
     override func viewDidLoad() {
@@ -21,16 +23,16 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(tap)
         
         
-        let pickerView = CountryPickerView()
         pickerView.pickerDelegate = self
 //        pickerView.setCountry(byCode: "LK")
         textField.inputView = pickerView
+        
+        
+        countrySelectorViewController.selectorDelegate = self
+//        countrySelectorViewController.setCountry(byCode: "LK")
     }
     
     @IBAction func didTapTableViewButton(_ sender: UIButton) {
-        let countrySelectorViewController = CountrySelectorViewController()
-        countrySelectorViewController.selectorDelegate = self
-//        countrySelectorViewController.setCountry(byCode: "LK")
         present(countrySelectorViewController, animated: true)
     }
     
@@ -38,7 +40,7 @@ class ViewController: UIViewController {
 
 extension ViewController: CountrySelectorViewControllerDelegate {
     
-    func didSelectCountry(_ countrySelectorViewController: CountrySelectorViewController, country: CPCountry) {
+    func didSelectCountry(_ countrySelectorViewController: CountrySelectorViewController, country: Country) {
         print(country)
         countrySelectorViewController.dismiss(animated: true)
     }
@@ -47,7 +49,7 @@ extension ViewController: CountrySelectorViewControllerDelegate {
 
 extension ViewController: CountryPickerViewDelegate {
     
-    func didPickCountry(_ country: CPCountry) {
+    func didPickCountry(_ country: Country) {
         textField.text = country.name
     }
     

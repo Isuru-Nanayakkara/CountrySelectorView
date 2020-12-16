@@ -6,9 +6,9 @@
 //
 
 public protocol CountrySelectorViewControllerDelegate: class {
-    func didSelectCountry(_ countrySelectorViewController: CountrySelectorViewController, country: CPCountry)
+    func didSelectCountry(_ countrySelectorViewController: CountrySelectorViewController, country: Country)
 }
 
 public protocol CountryPickerViewDelegate: class {
-    func didPickCountry(_ country: CPCountry)
+    func didPickCountry(_ country: Country)
 }

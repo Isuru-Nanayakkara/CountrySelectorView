@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CountrySelectorView'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'CountrySelectorView lets users pick a country from a list.'
 
 # This description is used to generate tags and improve search results.
