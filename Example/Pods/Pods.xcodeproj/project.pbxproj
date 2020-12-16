@@ -17,6 +17,7 @@
 		430514C424BD84520008DE9B /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430514BE24BD84520008DE9B /* CountryListViewController.swift */; };
 		430514C624BD84630008DE9B /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 430514C524BD84630008DE9B /* countries.json */; };
 		439806F4258A11CB009B6D7F /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439806F3258A11CB009B6D7F /* Country.swift */; };
+		439806FC258A12F9009B6D7F /* CountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439806FB258A12F9009B6D7F /* CountryManager.swift */; };
 		5608A3BDE2C20EDCB2BFDC393808A552 /* Pods-CountrySelectorView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BA859F227A394F190305DD3BB03D9435 /* Pods-CountrySelectorView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AABBFEE15093380238410786B6E45C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		E960BEF39262826CE34F65A25C0C5022 /* Pods-CountrySelectorView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE248711C22595D7A4525BF44799141E /* Pods-CountrySelectorView_Example-dummy.m */; };
@@ -57,6 +58,7 @@
 		430514C524BD84630008DE9B /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = countries.json; path = CountrySelectorView/Assets/countries.json; sourceTree = "<group>"; };
 		433394D40D18EE36E7F166D03409FB3C /* Pods-CountrySelectorView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CountrySelectorView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		439806F3258A11CB009B6D7F /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		439806FB258A12F9009B6D7F /* CountryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryManager.swift; sourceTree = "<group>"; };
 		4C5D09D4FE6A620AFAB5D6798BADA3C2 /* CountrySelectorView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CountrySelectorView.debug.xcconfig; sourceTree = "<group>"; };
 		647B4198122E471654BDEC033158897B /* Pods-CountrySelectorView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CountrySelectorView_Tests.modulemap"; sourceTree = "<group>"; };
 		689AFFDCF62C0C4A2F4FC00A255B60E0 /* CountrySelectorView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CountrySelectorView-prefix.pch"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				430514C524BD84630008DE9B /* countries.json */,
+				439806FB258A12F9009B6D7F /* CountryManager.swift */,
 				439806F3258A11CB009B6D7F /* Country.swift */,
 				430514BC24BD84520008DE9B /* Protocols.swift */,
 				430514BA24BD84520008DE9B /* CountrySelectorViewController.swift */,
@@ -400,6 +403,7 @@
 				430514BF24BD84520008DE9B /* CountryPickerView.swift in Sources */,
 				439806F4258A11CB009B6D7F /* Country.swift in Sources */,
 				430514C224BD84520008DE9B /* Protocols.swift in Sources */,
+				439806FC258A12F9009B6D7F /* CountryManager.swift in Sources */,
 				430514C024BD84520008DE9B /* CountrySelectorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

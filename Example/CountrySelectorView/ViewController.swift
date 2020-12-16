@@ -11,6 +11,7 @@ import CountrySelectorView
 
 class ViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var countryLabel: UILabel!
     
     let countrySelectorViewController = CountrySelectorViewController()
     let pickerView = CountryPickerView()
@@ -24,12 +25,21 @@ class ViewController: UIViewController {
         
         
         pickerView.pickerDelegate = self
-//        pickerView.setCountry(byCode: "LK")
         textField.inputView = pickerView
         
-        
         countrySelectorViewController.selectorDelegate = self
-//        countrySelectorViewController.setCountry(byCode: "LK")
+        
+        
+        if let country = CountryManager.shared.currentCountry {
+            pickerView.setCountry(byCode: country.code)
+            countrySelectorViewController.setCountry(byCode: country.code)
+            
+            countryLabel.text = "\(country.flag ?? "")  \(country.name)  \(country.callingCode)"
+        }
+        
+//        if let country = CountryManager.shared.getCountry(fromCode: "US") {
+//            countryLabel.text = "\(country.flag ?? "")  \(country.name)  \(country.callingCode)"
+//        }
     }
     
     @IBAction func didTapTableViewButton(_ sender: UIButton) {

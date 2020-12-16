@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7DR-Ex-bJx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7DR-Ex-bJx">
                                 <rect key="frame" x="62.5" y="279.5" width="250" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="PPW-zw-D9Z"/>
@@ -38,22 +39,46 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Country:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbN-9X-dfi">
+                                <rect key="frame" x="16" y="40" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPi-vD-4kN">
+                                <rect key="frame" x="16" y="71" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6sZ-Co-TQL" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="4sl-ko-7hR"/>
+                            <constraint firstItem="LPi-vD-4kN" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="57M-Tc-ezE"/>
+                            <constraint firstAttribute="trailing" secondItem="LPi-vD-4kN" secondAttribute="trailing" constant="16" id="EKc-Pa-YP0"/>
+                            <constraint firstItem="pbN-9X-dfi" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="VbH-x3-fS8"/>
+                            <constraint firstItem="pbN-9X-dfi" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="40" id="VbV-eK-jBB"/>
+                            <constraint firstItem="LPi-vD-4kN" firstAttribute="top" secondItem="pbN-9X-dfi" secondAttribute="bottom" constant="10" id="ceV-gP-Cfd"/>
                             <constraint firstItem="7DR-Ex-bJx" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" constant="-34" id="p9o-gY-2Cr"/>
                             <constraint firstItem="7DR-Ex-bJx" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="r2n-zU-Xwk"/>
+                            <constraint firstAttribute="trailing" secondItem="pbN-9X-dfi" secondAttribute="trailing" constant="16" id="swF-EU-ZJx"/>
                             <constraint firstItem="6sZ-Co-TQL" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" constant="34" id="uRG-82-rxq"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="countryLabel" destination="LPi-vD-4kN" id="Pf6-jB-c51"/>
                         <outlet property="textField" destination="6sZ-Co-TQL" id="Gkw-bk-Q6g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135" y="129"/>
+            <point key="canvasLocation" x="133.59999999999999" y="128.18590704647679"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

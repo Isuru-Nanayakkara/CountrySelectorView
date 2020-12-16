@@ -108,21 +108,14 @@ public class CountryListViewController: UIViewController {
     }
     
     private func loadCountries(whitelist: [String]? = nil, blacklist: [String]? = nil) {
-        let path = Bundle(for: Self.self).path(forResource: "countries", ofType: "json")!
-        do {
-            let url = URL(fileURLWithPath: path)
-            let data = try Data(contentsOf: url)
-            let countries = try JSONDecoder().decode([Country].self, from: data)
-            
-            if let codes = blacklist {
-                self.countries = countries.filter { !codes.contains($0.code) }
-            } else if let codes = whitelist {
-                self.countries = countries.filter { codes.contains($0.code) }
-            } else {
-                self.countries = countries
-            }
-        } catch {
-            fatalError("Failed to load countries")
+        let allCountries = CountryManager.shared.countries
+        
+        if let codes = blacklist {
+            self.countries = allCountries.filter { !codes.contains($0.code) }
+        } else if let codes = whitelist {
+            self.countries = allCountries.filter { codes.contains($0.code) }
+        } else {
+            self.countries = allCountries
         }
     }
     
